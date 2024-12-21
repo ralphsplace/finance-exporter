@@ -7,8 +7,7 @@ import yaml
 import jsonschema
 import yfinance as yf
 from prometheus_client import start_http_server, Counter, Gauge, Summary, Histogram
-from includes.alphavantage import AlphaVantage
-import iexfinance.stocks as iex
+
 # Debug
 from pprint import pprint
 
@@ -26,7 +25,6 @@ class finance:
         self.verbose            = args.verbose
         self.debug              = args.debug
         self.config['port']     = next(v for v in [ args.port, self.config.get('port') ] if v is not None)
-        self.config['address']  = next(v for v in [ args.address, self.config.get('address') ] if v is not None)
     # Ensure we have sources
         if self.config.get('sources') is None:
             raise Exception('Refusing to initialize with no defined sources')
@@ -78,16 +76,7 @@ class finance:
         sources = dict()
         for source in self.config['sources']:
             sources[source['name']] = source
-            if source['plugin'] == 'alphavantage':
-                if source.get('api_key') is None:
-                    raise Exception(f"Source {source['name']} must provide API Key for AlphaVantage to use plugin")
-                sources[source['name']]['handler'] = AlphaVantage(source['api_key'])
-            elif source['plugin'] == 'iexcloud':
-                if source.get('api_key') is None:
-                    raise Exception(f"Source {source['name']} must provide API Key for IEXCloud to use plugin")
-                sources[source['name']]['handler'] = iex
-            elif source['plugin'] == 'yfinance':
-                sources[source['name']]['handler'] = yf
+            sources[source['name']]['handler'] = yf
         return sources
 
     def load_labels(self):
@@ -128,21 +117,14 @@ class finance:
 
     def start_server(self):
         if self.verbose:
-            self.print_log(f"Starting HTTP Server on {self.config['address']}:{self.config['port']}")
-        start_http_server(int(self.config['port']), addr=self.config['address'])
+            self.print_log(f"Starting HTTP Server on port {self.config['port']}")
+        start_http_server(int(self.config['port']))
 
     def fetch_data(self, source, ticker):
         handler = source['handler']
         result = None
         try:
-            if source['plugin'] == 'yfinance':
-                result = handler.Ticker(ticker).info
-            elif source['plugin'] == 'alphavantage':
-                handler.ticker(ticker)
-                result = handler.get_all()
-            elif source['plugin'] == 'iexcloud':
-                stock = handler.Stock(ticker, output_format='json',token = source['api_key']).get_quote()
-                result = stock
+            result = handler.Ticker(ticker).info
         except Exception as e:
             self.print_log(f"Unable to fetch {ticker} from {source['name']}")
             if self.verbose:
@@ -218,7 +200,6 @@ if __name__ == '__main__':
     parser.add_argument('-f', '--config', help='Location of config yaml', required=True)
     parser.add_argument('-v', '--verbose', action='store_true', help='Print status to stdout')
     parser.add_argument('-p', '--port', help='Listening port (ip:port or just port)')
-    parser.add_argument('-a', '--address', help='Listen address')
     parser.add_argument('-d', '--debug', action="store_true",help="Dump API Data")
     args = parser.parse_args()
 

@@ -1,11 +1,10 @@
 $schema: http://json-schema.org/draft-07/schema#
-$id: https://github.com/rdmcguire/finance-exporter/schema.yaml
+$id: https://github.com/ralphsplace/finance-exporter/schema.yaml
 title: finance-exporter config file schema
 type: object
 additionalProperties: false
 
 required:
-  - address
   - port
   - tickers
   - sources
@@ -20,11 +19,6 @@ properties:
     title: Listen Port
     description: Default port to listen on
     type: integer
-  address:
-    title: Listen Address
-    description: Default IP tp listen on. 0.0.0.0 for all
-    type: string
-    format: ip-address
   metric_prefix:
     title: Metric Prefix
     description: String to prepend to all metric names
@@ -73,12 +67,6 @@ definitions:
         type: string
         enum:
           - yfinance
-          - iexcloud
-          - AlphaVantage
-      api_key:
-        title: API Key for plugin
-        description: API Key, required for iexcloud and AlphaVantage
-        type: string
       metrics:
         title: Definitions of metrics to retrieve from source
         type: object
