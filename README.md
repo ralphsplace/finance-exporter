@@ -3,12 +3,7 @@
 This exporter allows you to define metrics and labels to be collected
 and served on a prometheus metrics endpoint.
 
-Currently, three APIs are supported:
-* Yahoo Finance
-* IEXCloud
-* AlphaVantage
-
-For IEXCloud and AlphaVantage, an API key must be specified in api_key for the source.
+Supporting Yahoo Finance
 
 ## Grafana Dashboard Sample
 Grafana Dashboard json in [Grafana JSON](contrib/finance-exporter.json)
@@ -33,7 +28,6 @@ from both, be certain to set `update_cache_on_startup: true`
 **Global Settings**
 ```yaml
 port: 8000
-address: 0.0.0.0
 metric_prefix: finance
 min_interval: 15
 update_cache_on_startup: false
@@ -84,7 +78,7 @@ using your preferred means (e.g. pip3 install -r requirements.txt) and run.
 
 **Script Options**
 ```bash
-usage: finance-exporter.py [-h] -f CONFIG [-v] [-p PORT] [-a ADDRESS] [-d]
+usage: finance-exporter.py [-h] -f CONFIG [-v] [-p PORT] [-d]
 
 Google Finance Prometheus Exporter
 
@@ -94,8 +88,6 @@ optional arguments:
                         Location of config yaml
   -v, --verbose         Print status to stdout
   -p PORT, --port PORT  Listening port (ip:port or just port)
-  -a ADDRESS, --address ADDRESS
-                        Listen address
   -d, --debug           Dump API Data
 ```
 

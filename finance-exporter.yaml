@@ -1,5 +1,5 @@
 ---
-port: 8000
+port: 7406
 metric_prefix: finance
 min_interval: 15
 # If set, each ticker will load labels from each source
@@ -9,12 +9,15 @@ min_interval: 15
 update_cache_on_startup: false
 
 tickers:
-  - AAPL
+  - AMZN
+  - MSFT
   - GOOG
+  - AAPL
+  - NVDA
 
 sources:
   - name: yahoo
-    interval: 300
+    interval: 120
     plugin: yfinance
     metrics:
       current_price:
@@ -45,10 +48,18 @@ sources:
         item: fiftyTwoWeekLow
         type: Gauge
         help: Fifty-Two Week Low
+      target_low_price:
+        item: targetLowPrice
+        type: Gauge
+        help: Target Price (Low)
       target_median_price:
         item: targetMedianPrice
         type: Gauge
         help: Target Price (Median)
+      target_high_price:
+        item: targetHighPrice
+        type: Gauge
+        help: Target Price (High)
       volume:
         item: regularMarketVolume
         type: Gauge
@@ -81,6 +92,22 @@ sources:
         item: beta
         type: Gauge
         help: Beta
+      recommendation_key:
+        item: recommendationKey
+        type: Text
+        help: Recommendations
+      recommendation_mean:
+        item: recommendationMean
+        type: Gauge
+        help: Recommendation Mean
+      revenue_growth:
+        item: revenueGrowth
+        type: Gauge
+        help: Revenue Growth
+      revenue_per_share:
+        item: revenuePerShare
+        type: Gauge
+        help: Revenue Per Share
     labels:
       ticker: symbol
       type: quoteType
