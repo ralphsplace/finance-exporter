@@ -92,10 +92,6 @@ sources:
         item: beta
         type: Gauge
         help: Beta
-      recommendation_key:
-        item: recommendationKey
-        type: Text
-        help: Recommendations
       recommendation_mean:
         item: recommendationMean
         type: Gauge
@@ -324,14 +320,6 @@ sources:
         item: shareHolderRightsRisk
         type: Gauge
         help: Shareholder Rights Risk
-      industry:
-        item: industry
-        type: Text
-        help: Industry
-      sector:
-        item: sector
-        type: Text
-        help: Sector
       full_time_employees:
         item: fullTimeEmployees
         type: Gauge
@@ -399,3 +387,4 @@ sources:
       exchange: exchange
       recommendation: recommendationKey
       sector: sector
+      industry: industry
