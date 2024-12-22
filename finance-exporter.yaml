@@ -108,6 +108,290 @@ sources:
         item: revenuePerShare
         type: Gauge
         help: Revenue Per Share
+      52_week_change:
+        item: 52WeekChange
+        type: Gauge
+        help: 52 Week Change
+      sandp_52_week_change:
+        item: SandP52WeekChange
+        type: Gauge
+        help: S&P 52 Week Change
+      ask:
+        item: ask
+        type: Gauge
+        help: Ask Price
+      ask_size:
+        item: askSize
+        type: Gauge
+        help: Ask Size
+      bid:
+        item: bid
+        type: Gauge
+        help: Bid Price
+      bid_size:
+        item: bidSize
+        type: Gauge
+        help: Bid Size
+      book_value:
+        item: bookValue
+        type: Gauge
+        help: Book Value
+      current_ratio:
+        item: currentRatio
+        type: Gauge
+        help: Current Ratio
+      debt_to_equity:
+        item: debtToEquity
+        type: Gauge
+        help: Debt to Equity Ratio
+      dividend_rate:
+        item: dividendRate
+        type: Gauge
+        help: Dividend Rate
+      dividend_yield:
+        item: dividendYield
+        type: Gauge
+        help: Dividend Yield
+      earnings_growth:
+        item: earningsGrowth
+        type: Gauge
+        help: Earnings Growth
+      earnings_quarterly_growth:
+        item: earningsQuarterlyGrowth
+        type: Gauge
+        help: Earnings Quarterly Growth
+      ebitda:
+        item: ebitda
+        type: Gauge
+        help: EBITDA
+      ebitda_margins:
+        item: ebitdaMargins
+        type: Gauge
+        help: EBITDA Margins
+      enterprise_to_ebitda:
+        item: enterpriseToEbitda
+        type: Gauge
+        help: Enterprise to EBITDA
+      enterprise_to_revenue:
+        item: enterpriseToRevenue
+        type: Gauge
+        help: Enterprise to Revenue
+      enterprise_value:
+        item: enterpriseValue
+        type: Gauge
+        help: Enterprise Value
+      ex_dividend_date:
+        item: exDividendDate
+        type: Gauge
+        help: Ex-Dividend Date
+      fifty_day_average:
+        item: fiftyDayAverage
+        type: Gauge
+        help: Fifty Day Average
+      financial_currency:
+        item: financialCurrency
+        type: Text
+        help: Financial Currency
+      free_cashflow:
+        item: freeCashflow
+        type: Gauge
+        help: Free Cashflow
+      gross_margins:
+        item: grossMargins
+        type: Gauge
+        help: Gross Margins
+      held_percent_institutions:
+        item: heldPercentInstitutions
+        type: Gauge
+        help: Percent of Shares Held by Institutions
+      implied_shares_outstanding:
+        item: impliedSharesOutstanding
+        type: Gauge
+        help: Implied Shares Outstanding
+      market_cap:
+        item: marketCap
+        type: Gauge
+        help: Market Capitalization
+      net_income_to_common:
+        item: netIncomeToCommon
+        type: Gauge
+        help: Net Income to Common
+      number_of_analyst_opinions:
+        item: numberOfAnalystOpinions
+        type: Gauge
+        help: Number of Analyst Opinions
+      operating_cashflow:
+        item: operatingCashflow
+        type: Gauge
+        help: Operating Cashflow
+      operating_margins:
+        item: operatingMargins
+        type: Gauge
+        help: Operating Margins
+      payout_ratio:
+        item: payoutRatio
+        type: Gauge
+        help: Payout Ratio
+      price_to_book:
+        item: priceToBook
+        type: Gauge
+        help: Price to Book Ratio
+      price_to_sales_trailing_12_months:
+        item: priceToSalesTrailing12Months
+        type: Gauge
+        help: Price to Sales Trailing 12 Months
+      profit_margins:
+        item: profitMargins
+        type: Gauge
+        help: Profit Margins
+      quick_ratio:
+        item: quickRatio
+        type: Gauge
+        help: Quick Ratio
+      return_on_assets:
+        item: returnOnAssets
+        type: Gauge
+        help: Return on Assets
+      return_on_equity:
+        item: returnOnEquity
+        type: Gauge
+        help: Return on Equity
+      shares_outstanding:
+        item: sharesOutstanding
+        type: Gauge
+        help: Shares Outstanding
+      shares_percent_shares_out:
+        item: sharesPercentSharesOut
+        type: Gauge
+        help: Percent of Shares Outstanding
+      short_percent_of_float:
+        item: shortPercentOfFloat
+        type: Gauge
+        help: Short Percent of Float
+      short_ratio:
+        item: shortRatio
+        type: Gauge
+        help: Short Ratio
+      total_cash:
+        item: totalCash
+        type: Gauge
+        help: Total Cash
+      total_cash_per_share:
+        item: totalCashPerShare
+        type: Gauge
+        help: Total Cash Per Share
+      total_debt:
+        item: totalDebt
+        type: Gauge
+        help: Total Debt
+      total_revenue:
+        item: totalRevenue
+        type: Gauge
+        help: Total Revenue
+      trailing_eps:
+        item: trailingEps
+        type: Gauge
+        help: Trailing EPS
+      trailing_pe:
+        item: trailingPE
+        type: Gauge
+        help: Trailing PE
+      trailing_peg_ratio:
+        item: trailingPegRatio
+        type: Gauge
+        help: Trailing PEG Ratio
+      two_hundred_day_average:
+        item: twoHundredDayAverage
+        type: Gauge
+        help: Two Hundred Day Average
+      audit_risk:
+        item: auditRisk
+        type: Gauge
+        help: Audit Risk
+      board_risk:
+        item: boardRisk
+        type: Gauge
+        help: Board Risk
+      compensation_risk:
+        item: compensationRisk
+        type: Gauge
+        help: Compensation Risk
+      overall_risk:
+        item: overallRisk
+        type: Gauge
+        help: Overall Risk
+      shareholder_rights_risk:
+        item: shareHolderRightsRisk
+        type: Gauge
+        help: Shareholder Rights Risk
+      industry:
+        item: industry
+        type: Text
+        help: Industry
+      sector:
+        item: sector
+        type: Text
+        help: Sector
+      full_time_employees:
+        item: fullTimeEmployees
+        type: Gauge
+        help: Full Time Employees
+      float_shares:
+        item: floatShares
+        type: Gauge
+        help: Float Shares
+      forward_eps:
+        item: forwardEps
+        type: Gauge
+        help: Forward EPS
+      five_year_avg_dividend_yield:
+        item: fiveYearAvgDividendYield
+        type: Gauge
+        help: Five Year Average Dividend Yield
+      last_dividend_date:
+        item: lastDividendDate
+        type: Gauge
+        help: Last Dividend Date
+      last_dividend_value:
+        item: lastDividendValue
+        type: Gauge
+        help: Last Dividend Value
+      last_fiscal_year_end:
+        item: lastFiscalYearEnd
+        type: Gauge
+        help: Last Fiscal Year End
+      last_split_date:
+        item: lastSplitDate
+        type: Gauge
+        help: Last Split Date
+      last_split_factor:
+        item: lastSplitFactor
+        type: Text
+        help: Last Split Factor
+      next_fiscal_year_end:
+        item: nextFiscalYearEnd
+        type: Gauge
+        help: Next Fiscal Year End
+      most_recent_quarter:
+        item: mostRecentQuarter
+        type: Gauge
+        help: Most Recent Quarter
+      date_short_interest:
+        item: dateShortInterest
+        type: Gauge
+        help: Date Short Interest
+      shares_short_previous_month_date:
+        item: sharesShortPreviousMonthDate
+        type: Gauge
+        help: Shares Short Previous Month Date
+      shares_short_prior_month:
+        item: sharesShortPriorMonth
+        type: Gauge
+        help: Shares Short Prior Month
+      price_hint:
+        item: priceHint
+        type: Gauge
+        help: Price Hint
     labels:
       ticker: symbol
       type: quoteType

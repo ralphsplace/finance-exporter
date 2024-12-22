@@ -195,6 +195,9 @@ class finance:
     def print_log(self, msg):
         print(f'{datetime.now()} {msg}', flush=True)
 
+    def is_market_open(self, d = datetime.today()):
+        return d.weekday() < 5 and d.hour > 6 and d.hour < 18
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Google Finance Prometheus Exporter')
     parser.add_argument('-f', '--config', help='Location of config yaml', required=True)
@@ -218,7 +221,7 @@ if __name__ == '__main__':
 # Update in loop
     while True:
         for name, source in f.sources.items():
-            if time.time() - last_run[name] > source['interval']:
+            if f.is_market_open(datetime.now()) and time.time() - last_run[name] > source['interval']:
                 if args.verbose:
                     f.print_log(f"Updating Source {name}")
                 f.update(source)

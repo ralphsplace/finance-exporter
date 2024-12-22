@@ -1,9 +1,10 @@
-FROM python:3.13
+FROM python:3.13-slim
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN apt-get update && apt-get install -y 
 RUN pip3 install --no-cache-dir -r requirements.txt
+ENV TZ="America/Toronto"
 ENV CONFIG '/usr/src/app/finance-exporter.yaml'
 ENV OPTS ''
 COPY schema.yaml ./
